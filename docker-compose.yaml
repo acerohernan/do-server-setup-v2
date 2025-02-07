@@ -14,8 +14,8 @@ services:
       - ./conf/basic_auth.conf:/etc/basic_auth.conf
       - ./conf/caddyfile_optional.conf:/etc/caddyfile_optional.conf
       - ./caddy/etc/Caddyfile:/etc/caddy/Caddyfile
-      # - ./caddy/etc/tls_auto:/etc/tls_auto
-      - ./caddy/etc/tls_custom:/etc/tls_custom
+      - ./caddy/etc/tls_auto:/etc/tls_auto
+      # - ./caddy/etc/tls_custom:/etc/tls_custom
       # - ./caddy/etc/tls_cloudflare:/etc/tls_cloudflare
       # - ./caddy/etc/tls_selfsigned:/etc/tls_selfsigned
       - ./mail-acme-challenge:/mail-acme-challenge
