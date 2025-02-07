@@ -1,0 +1,19 @@
+{
+    default_sni {$VEET_SERVER_NAME}
+}
+
+{$VEET_SERVER_NAME}  {
+    import /etc/{$TLS_MODE} 
+    root * /var/www/veet
+    encode zstd gzip
+    file_server
+
+    log {
+        output file /var/log/caddy.log
+    }
+
+    header / {
+      X-Frame-Options "SAMEORIGIN"
+      X-Content-Type-Options "nosniff"
+    }
+}

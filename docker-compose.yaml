@@ -1,0 +1,36 @@
+version: '3'
+services:
+  caddy:
+    image: caddy:2.7.5
+    restart: always
+    volumes:
+      # static sites
+      # - ./www/portfolio:/var/www/portfolio
+      # - ./www/docs:/var/www/docs
+      - ./www/veet:/var/www/veet
+      # configuration
+      - ./.caddy_data:/data
+      - ./.caddy_config:/config
+      - ./conf/basic_auth.conf:/etc/basic_auth.conf
+      - ./conf/caddyfile_optional.conf:/etc/caddyfile_optional.conf
+      - ./caddy/etc/Caddyfile:/etc/caddy/Caddyfile
+      # - ./caddy/etc/tls_auto:/etc/tls_auto
+      - ./caddy/etc/tls_custom:/etc/tls_custom
+      # - ./caddy/etc/tls_cloudflare:/etc/tls_cloudflare
+      # - ./caddy/etc/tls_selfsigned:/etc/tls_selfsigned
+      - ./mail-acme-challenge:/mail-acme-challenge
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    env_file:
+      - ./conf/caddy/.env
+      - ./conf/caddy/sensitive.env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "10"
+
+volumes:
+  docs-db-data:
