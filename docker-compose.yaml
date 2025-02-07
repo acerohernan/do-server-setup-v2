@@ -28,7 +28,7 @@ services:
         max-file: "10"
 
   veet-api:
-    image: veet-api:latest
+    image: acerohernan/veet-api:latest
     restart: always
       - ./conf/api-veet.env
     logging:
