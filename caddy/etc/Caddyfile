@@ -17,3 +17,7 @@
       X-Content-Type-Options "nosniff"
     }
 }
+
+{$API_VEET_SERVER_NAME} {
+    reverse_proxy veet-api:3000
+}
