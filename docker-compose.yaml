@@ -31,7 +31,7 @@ services:
     image: acerohernan/veet-api:latest
     restart: always
     env_file:
-      - ./conf/api-veet.env
+      - ./conf/veet/api-veet.env
     logging:
       driver: "json-file"
       options:
