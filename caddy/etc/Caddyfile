@@ -16,6 +16,8 @@
       X-Frame-Options "SAMEORIGIN"
       X-Content-Type-Options "nosniff"
     }
+
+    try_files {path} /index.html
 }
 
 {$API_VEET_SERVER_NAME} {
